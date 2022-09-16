@@ -1,28 +1,9 @@
-from flask import Flask, request
-import word2vec
+from flask import Flask
+
+import src.word2vec_controller as controller
 
 app = Flask(__name__)
-
-
-@app.route('/api/keyword/relation/mention')
-def get_news_sims():
-    parameter_dict = request.args.to_dict()
-    if len(parameter_dict) == 0:
-        return "No parameter"
-
-
-    for key in parameter_dict.keys():
-        return word2vec.get_news_sims_keyword(request.args[key])
-
-@app.route('/api/keyword/relation/search')
-def get_search_log_sims():
-    parameter_dict = request.args.to_dict()
-    if len(parameter_dict) == 0:
-        return "No parameter"
-
-
-    for key in parameter_dict.keys():
-        return word2vec.get_search_log_sims_keyword(request.args[key])
+app.register_blueprint(controller.app)
 
 
 if __name__ == '__main__':

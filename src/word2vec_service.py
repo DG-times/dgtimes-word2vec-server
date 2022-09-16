@@ -2,7 +2,7 @@ from gensim.models.word2vec import Word2Vec
 
 
 def get_news_sims_keyword(keyword):
-    model = Word2Vec.load('word2vec.model')
+    model = Word2Vec.load('resource/news_mention_word2vec_2.model')
 
     sims_dict = []
 
@@ -27,7 +27,7 @@ def get_news_sims_keyword(keyword):
 
 
 def get_search_log_sims_keyword(keyword):
-    model = Word2Vec.load('word2vec_2.model')
+    model = Word2Vec.load('resource/search_log_word2vec.model')
 
     sims_dict = []
 
